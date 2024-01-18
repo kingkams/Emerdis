@@ -1,0 +1,13 @@
+{% extends 'AssemblyPage/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<form class="form" method="POST" enctype="multipart/form-data">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <button type="submit" class="bg-blue-500 text-white font-bold py-0.5 px-2.5 rounded hover:bg-blue-400 active:bg-blue-500 mt-1.5">
+                Post
+        </button>
+</form>
+{% endblock %}

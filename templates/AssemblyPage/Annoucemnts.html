@@ -1,0 +1,29 @@
+{% extends 'AssemblyPage/base.html' %}
+{% block content %}
+{% load static %}
+    <div class="bg-gray-100 ">
+  <div class='flex flex-col mx-5 md:text-[14px] text-[10px]  '>
+<a href="{% url 'post:create_Announcemt' %}">create announcement </a>
+
+    {% for assemble in assembly %}
+        <div class=" bg-gray-100 ">
+    <a class="hover:bg-slate-300" href="{% url 'post:update' assemble.id %}">
+        <div class ='px-3 py-0.5 flex flex-col bg-white my-1'>
+        {% if assemble.image %}{% endif %}
+        <div class="text-blue-500 font-bold ">{{ assemble.title}}</div>
+        <div class = "my-1.5">{{assemble.description}}</div>
+        <div class = "my-1.5">{{assemble.created}}</div>
+        <div>
+           <a href="{% url 'post:delete' assemble.id%}" class="px-1.5 py-0.5 bg-red-500 text-white">Delete</a>
+        </div>
+         </div>
+    </a>
+    </div>
+        {% empty %}
+        <p>There are no Announcements</p>
+        {% endfor %}
+    </div>
+
+    </div>
+
+{% endblock %}

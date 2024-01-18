@@ -1,0 +1,17 @@
+.body{
+    background-color: black;
+    z-index: 99;
+}
+.img{
+    max-height: 470px !important;
+
+}
+.mycenter{
+    position: absolute;
+    background-color:white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 10px rgb(48, 49, 50);
+    max-height: 400px;
+}

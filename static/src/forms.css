@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+}
+
+
+body{
+    background-color: rgb(90, 189, 216);
+
+}
+
+ form>p>input {
+    border: 1px solid gray ;
+    padding: 5px 6px;
+    border-radius:4px;
+    outline: none;
+    max-width:290px;
+    min-width:150px;
+}
+.form{
+    position: absolute;
+    background-color:white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 15px 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgb(48, 49, 50);
+}
+form{
+    display: flex;
+    flex-direction: column;
+    margin-top: 3px;
+
+}
+form>p{
+    display: flex;
+    flex-direction: column;
+    font-size: 11px;
+    margin: 3px 0;
+    font-weight: bold;
+
+}
+form>button{
+    background-color: rgb(222, 39, 91);    
+    color: white; 
+    border-radius: 5px;
+    margin-top: 6px;
+    border: none;
+    padding: 10px;
+}
+form>ul{
+    font-size:7px ;
+}

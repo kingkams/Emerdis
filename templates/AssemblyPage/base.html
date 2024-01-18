@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static %}
+{% load static tailwind_tags %}
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'src/create-form.css'%}">
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+   {% tailwind_css %}
+
+</head>
+
+<body  class=" bg-gray-100 ">
+<div class="flex text-white bg-blue-500 justify-between p-2">
+<div class="font-bold">
+    Emerdis
+</div>
+<div class="flex justify-between">
+{% if request.user.is_authenticated%}
+
+    <p class="">{{ request.user.institution  }}</p>
+         <a href="{% url 'post:' %}">Emergency</a>
+
+    <a href="{% url 'post:announcements' %}">My Posts</a>
+    <a href="{% url 'post:alerts' %}">Announcement</a>
+    <form method="post" action="{% url 'logout' %}">
+    {% csrf_token %}
+    <button class="mx-1.5" type="submit">logout</button>
+    </form>
+    {% else %}
+        <a href="{% url 'login' %}">login</a>
+{% endif %}
+</div>
+</div>
+{% if request.user.is_assembly %}
+{% block content %}
+{% endblock %}
+{% else %}
+    404 page does not exist
+
+{% endif %}
+</body>
+</html>
