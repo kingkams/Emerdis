@@ -1,25 +1,20 @@
-{% extends 'PeoplePage/base.html ' %} {% block content %} {% load static %}
+{% extends 'AssemblyPage/base.html ' %} {% block content %} {% load static %}
 <h1 class="text-blue-500 text-[18px] font-bold">{{ assemble.title}}</h1>
 <div class="bg-gray-100">
-<div class="flex">
   {% if assemble.main_image %}<img
     src="{{assemble.main_image.url}}"
     alt="main_image"
-  />{% endif %}
-</div>
-<div class="flex">
-    {% if assemble.supporting_image1%}<img
+  />{% endif %} {% if assemble.supporting_image1%}<img
     src="{{assemble.supporting_image1.url}}"
     alt=""
   />{% endif %}
  {% if assemble.supporting_image2%}<img
       src="{{assemble.supporting_image2.url}}"
       alt=""
-    />{% endif %}<div>
+    />{% endif %}
   <div class="flex flex-col m-1.5">
     <div class="my-1.5">{{assemble.description}}</div>
     <div class="my-1.5">{{assemble.created}}</div>
   </div>
 </div>
   {% endblock %}
-

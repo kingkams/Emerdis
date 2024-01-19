@@ -1,13 +1,36 @@
-{% extends 'AssemblyPage/base.html' %}
-{% block content %}
+{% extends 'AssemblyPage/base.html' %} {% block content %}
 {% load static %}
+    <script type="text/javascript">
+     function showImage(id){
+         console.log(id)
+         let element = document.getElementById(id);
+         console.log(element)
+
+         element.classList.remove('hidden')
+         console.log(id)
+     }
+      function RemoveImage(id){
+         console.log(id)
+         let element = document.getElementById(id);
+         console.log(element)
+
+         element.classList.add('hidden')
+         console.log(id)
+     }
+    </script>
     <div >
-  <div class='flex flex-col mx-5 md:text-[14px] text-[10px]  '>
+
     {% for post in posts %}
         <div>
-    <div>
+    <div >
+     {% if post.image %}
+       <div class="hidden mycenter" id='{{ post.id }}' >
+           <img class="max-h-[470px]" src="{{post.image.url}}" alt="image of problem post-image"/>
+           <button class=" bg-blue-500 text-white px-1.5 font-bold py-0.5 rounded" onClick="RemoveImage('{{ post.id }}')">close</button>
+       </div>
+    {% endif %}
+
         <div class ='px-3 py-1 flex flex-col bg-white my-5 rounded-2xl'>
-        {% if post.image %}{% endif %}
         <div class="flex text-[11px]  justify-between md:text-[12px]">
         <div class="text-blue-500 font-bold "> <span class="mr-2">{{ post.author.first_name }}</span><span>{{ post.author.last_name }} </span> </div>
         <div>{{ post.author.contact}}</div>
@@ -15,7 +38,9 @@
         <div class = "my-1.5 text-[14px]">{{post.problem}}</div>
         <div class="flex justify-between">
         <div class="text-[11px] md:text-[12px] font-bold {% if post.category == 'Emergency' %} text-red-500 {% else %} text-green-600{% endif %}" >{{ post.category }}</div>
-        <div class=" text-blue-500"> {{ post.created }} </div>
+        {% if post.image %}
+        <button class=" bg-blue-500 text-white px-1.5 font-bold py-0.5 rounded" onClick="showImage('{{ post.id }}')">image</button>
+        {% endif %}
         </div>
             </div>
 
@@ -28,3 +53,4 @@
     </div>
 
 {% endblock %}
+

@@ -2,7 +2,7 @@ from django.urls import path
 from django.contrib.auth import views as auth_views
 from .views import PeoplelistView, AnnoucementView, CreatePost, DeletePost, AssemblyList, AnnoucementList, \
     CreateAnnouncemts, \
-    UpdateAnnouncements, DeleteAnnouncement, AnnouncementDetail
+    UpdateAnnouncements, DeleteAnnouncement, AnnouncementDetail,AnnouncementAssemblyDetail, AnnoucementAssemblyView
 
 app_name = 'post'
 
@@ -15,6 +15,8 @@ urlpatterns = [
     path('<str:pk>/Delete/', DeletePost.as_view(), name='delete_post'),
     path('<str:pk>/assembly/update', UpdateAnnouncements.as_view(), name='update'),
     path('<str:pk>/Delete_anouncement/', DeleteAnnouncement.as_view(), name='delete'),
+    path('asembly/post/', AnnoucementAssemblyView.as_view(), name='assembly_list'),
+    path('<str:pk>/asembly/post/detail', AnnouncementAssemblyDetail.as_view(), name='assembly_detail'),
     path('assembly', AssemblyList.as_view(), name='AssemPost'),
     path('create_announcement/', CreateAnnouncemts.as_view(), name='create_Announcemt'),
 

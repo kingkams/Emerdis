@@ -1,8 +1,9 @@
-{% extends 'PeoplePage/base.html' %} {% block content %}
+{% extends 'AssemblyPage/base.html' %} {% block content %}
 {% load static %}
     <div class="bg-gray-100 ">
+
     {% for assemble in assembly %}
-         <a class="hover:bg-slate-300" href="{% url 'post:detail' assemble.id%}">
+         <a class="hover:bg-slate-300" href="{% url 'post:assembly_detail' assemble.id%}">
         <div class="hover:bg-slate-300">
         <div class ='px-3 py-0.5 flex flex-col bg-white my-2
          hover:bg-slate-300'>

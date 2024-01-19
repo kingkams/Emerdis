@@ -14,7 +14,7 @@ from .forms import CreatePostForm, CreateAnnouncementForm
 
 class AnnoucementView(LoginRequiredMixin, ListView):
     model = AssemblyPost
-    template_name = "PeoplePage/Annoucements.html"
+    template_name = "PeoplePage/Annoucements.html",
     context_object_name = "assembly"
 
 
@@ -80,7 +80,7 @@ class AnnoucementList(LoginRequiredMixin, ListView):
 class CreateAnnouncemts(LoginRequiredMixin, CreateView):
     form_class = CreateAnnouncementForm
     template_name = "AssemblyPage/create.html"
-    success_url = reverse_lazy('post:Posts')
+    success_url = reverse_lazy('post:announcements')
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -96,36 +96,13 @@ class AnnouncementDetail(LoginRequiredMixin, DetailView):
     model = AssemblyPost
     template_name = "PeoplePage/detail.html"
     context_object_name = "assemble"
-"""
-class People(LoginRequiredMixin, Create):
-    model = Product
-    template_name = 'sellers/details.html'
-    context_object_name = "product"
 
+class AnnoucementAssemblyView(LoginRequiredMixin, ListView):
+    model = AssemblyPost
+    template_name = "AssemblyPage/AnnounceList.html"
+    context_object_name = "assembly"
 
-
-
-
-class UpdateProduct(LoginRequiredMixin, UpdateView):
-    model = Product
-    template_name = "sellers/update.html"
-    fields = ['name', 'image', 'description', 'category', 'price', 'available']
-
-
-class DeleteProduct(LoginRequiredMixin, DeleteView):
-    model = Product
-    context_object_name = 'product'
-    template_name = "sellers/dlete.html"
-    success_url = reverse_lazy('sellers:shop_list')
-
-
-class OrderList(LoginRequiredMixin, ListView):
-    model = OrderItem
-    template_name = "sellers/orders.html"
-    context_object_name = "orders"
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["orders"] = context["orders"].filter(products__user=self.request.user)
-        return context
-"""
+class AnnouncementAssemblyDetail(LoginRequiredMixin, DetailView):
+    model = AssemblyPost
+    template_name = "AssemblyPage/AnnouncemtDetail.html"
+    context_object_name = "assemble"

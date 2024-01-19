@@ -7,6 +7,8 @@
 
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="{% static 'src/image.css'%}">
+
 
    {% tailwind_css %}
 
@@ -21,10 +23,10 @@
 {% if request.user.is_authenticated%}
 
     <p class="">{{ request.user.institution  }}</p>
-         <a href="{% url 'post:' %}">Emergency</a>
+         <a class="mx-1.5" href="{% url 'post:AssemPost' %}">Emergency</a>
 
-    <a href="{% url 'post:announcements' %}">My Posts</a>
-    <a href="{% url 'post:alerts' %}">Announcement</a>
+    <a class="mx-1.5" href="{% url 'post:announcements' %}">My Posts</a>
+    <a class="mx-1.5" href="{% url 'post:assembly_list' %}">Announcement</a>
     <form method="post" action="{% url 'logout' %}">
     {% csrf_token %}
     <button class="mx-1.5" type="submit">logout</button>

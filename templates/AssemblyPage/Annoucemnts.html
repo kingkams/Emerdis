@@ -3,11 +3,13 @@
 {% load static %}
     <div class="bg-gray-100 ">
   <div class='flex flex-col mx-5 md:text-[14px] text-[10px]  '>
-<a href="{% url 'post:create_Announcemt' %}">create announcement </a>
-
+  <div class='flex flex-col mx-5 md:text-[14px] text-[10px]  '>
+      <div class="flex justify-center"> <a href="{% url 'post:create_Announcemt' %}"><img class="h-[100px] w-[100px]" src="{% static "Component 13 (2).svg" %}" alt="My image"/>
+      </a></div>
     {% for assemble in assembly %}
-        <div class=" bg-gray-100 ">
-    <a class="hover:bg-slate-300" href="{% url 'post:update' assemble.id %}">
+            <a class="hover:bg-slate-300" href="{% url 'post:update' assemble.id %}">
+
+        <div>
         <div class ='px-3 py-0.5 flex flex-col bg-white my-1'>
         {% if assemble.image %}{% endif %}
         <div class="text-blue-500 font-bold ">{{ assemble.title}}</div>
@@ -17,8 +19,9 @@
            <a href="{% url 'post:delete' assemble.id%}" class="px-1.5 py-0.5 bg-red-500 text-white">Delete</a>
         </div>
          </div>
-    </a>
+
     </div>
+            </a>
         {% empty %}
         <p>There are no Announcements</p>
         {% endfor %}
